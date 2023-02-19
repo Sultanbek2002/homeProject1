@@ -1,0 +1,73 @@
+{% extends 'website/base.html' %}
+{% block tittle %}Worker{% endblock %}
+{% block content %}
+{% include 'website/include/header.html' %}
+{% include 'website/include/sidebar.html' %}
+{% include 'website/include/slider.html' %}
+<div class="page-content my-5">
+    <div class="content-section">
+        <div class="container">
+            <div class="row">
+                {%for info in data %}
+                <div class="col-6">
+                    <img src="{{info.photo.url}}" class="img-fluid rounded border border-primary"/>
+                    {% autoescape off %}
+                    <p class="display-6">{{info.description|truncatewords:5}}</p>
+                    {% endautoescape %}
+                </div>
+                <div class="col-6">
+                    <table class="table table-info table-striped">
+                        <tbody>
+                        <tr>
+                            <th scope="col">ФИО</th>
+                            <td>{{info.name}} {{info.last_name}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">Возраст</th>
+                            <td>{{info.age}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">Компания</th>
+                            <td>{{info.company}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">Транспорт</th>
+                            <td>{{info.transport}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">Номер транспорта</th>
+                            <td>{{info.tr_number}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">Место(для клиентов)</th>
+                            <td>{{info.places}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">Рабочие дни</th>
+                            <td>{% for i in info.working_days %}{{i}}, {% endfor %}</td>
+                        </tr>
+                        {% if info.instagram %}
+                        <tr>
+                            <th scope="col">Инстаграм</th>
+                            <td>{{info.instagram}}</td>
+                        </tr>
+                        {% endif %}
+                        <tr>
+                            <th scope="col">Маршрут</th>
+                            <td>{{info.direction}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">Дата вхождении</th>
+                            <td>{{info.date_creat|date:"d-m-Y"}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'website/include/footer.html' %}
+{% endblock %}
