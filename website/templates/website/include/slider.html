@@ -1,18 +1,5 @@
 <div class="slider">
-    {% if user.is_authenticated  %}
-    <div class="mx-5 d-flex justify-content-around">
-        <div class="mx-5" style=""><i class="bi bi-box-arrow-in-left " style="color:white;"></i><a
-                href="{% url 'logout' %}"
-                class="mx-2 fw-bolder">logout</a>
-        </div>
-    </div>
-    {% else %}
-    <div class="mx-5 d-flex justify-content-around">
-        <div><i class="bi bi-box-arrow-in-right " style="color:white;"></i><a href="{% url 'login' %}" class="mx-2">LOGIN</a>
-        </div>
-        <div><i class="bi bi-card-checklist" style="color:white;"></i><a href="" class="mx-2">REGISTRATION</a></div>
-    </div>
-    {% endif %}
+
     <div class="Modern-Slider content-section" id="top">
         <!-- Item -->
         <div class="item item-1">

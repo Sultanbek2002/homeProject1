@@ -4,8 +4,11 @@
 {% include 'website/include/header.html' %}
 {% include 'website/include/sidebar.html' %}
 {% include 'website/include/slider.html' %}
+//регистрация
+{% if user.is_authenticated %}
 <div class="page-content">
     <section id="featured" class="content-section">
+        <div class="d-flex justify-content-end"><a href="{% url 'profile' %}" class="border border-warning p-4 rounded-pill fw-bold">Профиль  <i class="fa fa-user-circle-o mt-2   "></i></a></div>
         <div class="section-heading">
             <h1>Featured<br><em>Places</em></h1>
             <p>Praesent pellentesque efficitur magna,
@@ -27,7 +30,7 @@
                         <p>{{data.description}}</p>
                     </div>
                 </div>
-                {% endfor %}f
+                {% endfor %}
             </div>
         </div>
     </section>
@@ -402,7 +405,33 @@
             </div>
         </div>
     </section>
+
+
+    {% else %}
+    <div class="page-content my-5">
+        <div class="content-section">
+            <div class="container">
+                <div class="align-self-center p-4 text-danger fw-bold border border-danger">Зарегистрируйтесь чтобы
+                    пользоваться функционалами сайта
+                </div>
+                <div class="row  mt-5">
+                    <div class="col-sm-6 div_login">
+                        <div class="border border-primary p-3 "><a href="{% url 'login' %}"
+                                                                   class="text-primary fw-bold display-6 log">Авторизация</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 div_login ">
+                        <div class="border border-primary p-3 "><a href="{% url 'register' %}"
+                                                                   class="text-primary fw-bold display-6 log">Регистрация</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endif %}
     {% include 'website/include/footer.html' %}
-</div>  
+</div>
 {% endblock %}
 

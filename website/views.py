@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import Workers
 from django.db.models import Q
-
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def index(request):
@@ -19,7 +19,7 @@ def Worker(request, id):
     }
     return render(request, 'website/worker.html', contex)
 
-
+@login_required()
 def Search(request):
     workers = Workers.objects.order_by('-date_creat')
     if 'workerName' in request.GET:
@@ -32,5 +32,4 @@ def Search(request):
     return render(request, 'website/search.html', context)
 
 
-def Login(request):
-    return render(request, 'website/login.html')
+

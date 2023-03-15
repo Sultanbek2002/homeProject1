@@ -1,0 +1,66 @@
+
+.gradient-custom {
+/* fallback for old browsers */
+background: #f6d365;
+
+/* Chrome 10-25, Safari 5.1-6 */
+background: -webkit-linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1));
+
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1))
+}
+.input-file {
+	position: relative;
+	display: inline-block;
+}
+.input-file-btn {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+	outline: none;
+	text-decoration: none;
+	font-size: 14px;
+	vertical-align: middle;
+	color: rgb(255 255 255);
+	text-align: center;
+	border-radius: 4px;
+	background-color: #419152;
+	line-height: 22px;
+	height: 40px;
+	padding: 10px 20px;
+	box-sizing: border-box;
+	border: none;
+	margin: 0;
+	transition: background-color 0.2s;
+}
+.input-file-text {
+	padding: 0 10px;
+	line-height: 40px;
+	display: inline-block;
+}
+.input-file input[type=file] {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+	display: block;
+	width: 0;
+	height: 0;
+}
+
+/* Focus */
+.input-file input[type=file]:focus + .input-file-btn {
+	box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+/* Hover/active */
+.input-file:hover .input-file-btn {
+	background-color: #59be6e;
+}
+.input-file:active .input-file-btn {
+	background-color: #2E703A;
+}
+
+/* Disabled */
+.input-file input[type=file]:disabled + .input-file-btn {
+	background-color: #eee;
+}
